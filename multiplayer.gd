@@ -1,20 +1,42 @@
 extends Node
 
-var peer = ENetMultiplayerPeer.new()
-@export var player_scene: PackedScene
+func _ready() -> void:
+	multiplayer.peer_connected.connect(peer_connect_callback)
 
+func _process(_delta: float) -> void:
+	pass
+	
+func  peer_connect_callback(id):
+	$UI/VBoxContainer/InGameConsole.console("Player with id %d has joined."%[id])
+	
 func _on_host_pressed() -> void:
-	peer.create_server(135)
-	multiplayer.multiplayer_peer = peer
-	multiplayer.peer_connected.connect(_add_player)
-	_add_player()
+	# create a multiplayer instance
+	var peer = ENetMultiplayerPeer.new()
 	
-func _add_player(id = 1):
-	var player = player_scene.instantiate()
-	player.name = str(id)
-	call_deferred("add_child",player)
+	# create a server
+	peer.create_server(12077)
 	
-func _on_client_pressed() -> void:
-	peer.create_client("localhost",135)
+	# check if connected or not
+	if(peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED):
+		OS.alert("Failed to connect")
+		return
+	
 	multiplayer.multiplayer_peer = peer
-		
+	print("Starting game as a server")
+
+
+func _on_connect_pressed() -> void:
+	# create a multiplayer instance
+	var peer = ENetMultiplayerPeer.new()
+	
+	# create a server
+	peer.create_client("127.0.0.1",12077)
+	
+	# check if connected or not
+	if(peer.get_connection_status() == MultiplayerPeer.CONNECTION_DISCONNECTED):
+		OS.alert("Failed to connect")
+		return
+	
+	multiplayer.multiplayer_peer = peer
+	print("Starting game as a client")
+	
