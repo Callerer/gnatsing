@@ -1,5 +1,9 @@
 extends Node
 
+@onready var host = $UI/VBoxContainer/NetworkOprions/Host
+@onready var join = $UI/VBoxContainer/NetworkOprions/Connect
+@onready var username = $UI/VBoxContainer/NetworkOprions/Name
+
 var player_name = ""
 @export var player_scene: PackedScene
 
@@ -39,6 +43,7 @@ func _on_host_pressed() -> void:
 	print("Starting game as a server")
 	_add_player()
 	start_game()
+	joined()
 
 
 func _on_connect_pressed() -> void:
@@ -57,6 +62,7 @@ func _on_connect_pressed() -> void:
 	print("Starting game as a client")
 	_add_player()
 	start_game()
+	joined()
 
 func  _add_player():
 	var player = player_scene.instantiate()
@@ -71,3 +77,8 @@ func chat():
 	chatbox.clear()
 	chatbox_string = player_name + ": " + chatbox_string
 	rpc_console_log.rpc(chatbox_string)
+
+func joined():
+	host.hide()
+	join.hide()
+	username.hide()

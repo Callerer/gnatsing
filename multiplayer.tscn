@@ -53,5 +53,9 @@ layout_mode = 2
 layout_mode = 2
 script = ExtResource("2_wktud")
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1495770459]
+_spawnable_scenes = PackedStringArray("uid://yg8l1ucir0t1")
+spawn_path = NodePath("..")
+
 [connection signal="pressed" from="UI/VBoxContainer/NetworkOprions/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/NetworkOprions/Connect" to="." method="_on_connect_pressed"]
