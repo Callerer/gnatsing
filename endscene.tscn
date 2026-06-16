@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://q1vjyj8102t6"]
+
+[ext_resource type="Texture2D" uid="uid://b4c70nxne5w8q" path="res://assets/spritesheet.png" id="1_iboyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sl72"]
+atlas = ExtResource("1_iboyw")
+region = Rect2(64, 0, 32, 45)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bdik3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sl72")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="endscene" type="Node" unique_id=475582629]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1540965720]
+position = Vector2(122, 68)
+scale = Vector2(1.15625, 1.1444445)
+sprite_frames = SubResource("SpriteFrames_bdik3")
+
+[node name="Label" type="Label" parent="." unique_id=1868205633]
+offset_left = 45.0
+offset_top = 100.0
+offset_right = 219.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 13
+text = "Have I see you before?"
+horizontal_alignment = 1
+vertical_alignment = 1

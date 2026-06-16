@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d0vecis81mxq0"]
+
+[ext_resource type="Script" uid="uid://dv48f1pr4rlup" path="res://scripts/chatbox.gd" id="1_q4hop"]
+
+[node name="ChatBox" type="CanvasLayer" unique_id=304557590]
+script = ExtResource("1_q4hop")
+
+[node name="Control" type="Control" parent="." unique_id=1157414]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Send" type="Button" parent="Control" unique_id=555821582]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 168.0
+offset_right = 71.0
+offset_bottom = 199.0
+focus_behavior_recursive = 1
+text = "Send"
+
+[node name="Message" type="LineEdit" parent="Control" unique_id=901504911]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 131.0
+offset_right = 160.0
+offset_bottom = 162.0
+placeholder_text = "enter.."
+
+[node name="Display" type="TextEdit" parent="Control" unique_id=757915510]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 31.0
+offset_right = 157.0
+offset_bottom = 130.0
+editable = false
+
+[connection signal="pressed" from="Control/Send" to="." method="_on_send_pressed"]

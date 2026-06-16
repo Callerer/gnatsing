@@ -1,0 +1,107 @@
+[gd_scene format=4 uid="uid://evdpkab5sxvs"]
+
+[ext_resource type="Texture2D" uid="uid://bm7fhd8as2f7i" path="res://assets/door.png" id="1_l0aq0"]
+[ext_resource type="Script" uid="uid://bw8gaov8bm0pr" path="res://scripts/exit.gd" id="1_uyw7u"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uyw7u"]
+texture = ExtResource("1_l0aq0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_c7mer"]
+sources/1 = SubResource("TileSetAtlasSource_uyw7u")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyw7u"]
+size = Vector2(43.25, 90.75)
+
+[node name="exit" type="Area2D" unique_id=1340095252]
+script = ExtResource("1_uyw7u")
+
+[node name="password" type="LineEdit" parent="." unique_id=978884199]
+offset_left = 44.0
+offset_top = -34.0
+offset_right = 108.0
+offset_bottom = -10.0
+theme_override_font_sizes/font_size = 9
+placeholder_text = "password"
+
+[node name="report" type="Label" parent="." unique_id=536883603]
+offset_left = 46.0
+offset_top = -12.0
+offset_right = 96.0
+offset_bottom = 11.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1129856360]
+position = Vector2(-11, -34)
+tile_map_data = PackedByteArray("AAD/////AQAAAAAAAAD//wAAAQAAAAEAAAD//wEAAQAAAAQAAAAAAP//AQABAAAAAAAAAAAAAQABAAEAAAAAAAEAAQABAAQAAAABAP//AQACAAAAAAABAAAAAQACAAEAAAABAAEAAQACAAQAAAD//wIAAQAAAAUAAAD//wMAAQAAAAYAAAD//wQAAQAAAAcAAAAAAAIAAQABAAUAAAAAAAMAAQABAAYAAAAAAAQAAQABAAcAAAABAAIAAQACAAUAAAABAAMAAQACAAYAAAABAAQAAQACAAcAAAA=")
+tile_set = SubResource("TileSet_c7mer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1746515948]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_uyw7u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="text_submitted" from="password" to="." method="_on_password_text_submitted"]
