@@ -2,7 +2,7 @@
 A sequel to the game 'PaperGo!' , made for Resolution Game Dev week 7 in Godot.
 Play here - https://callerer.itch.io/gnatsing
 
-## The game
+## About The Game
 The mc goes through another world. You have been given a chatbox to keep note of things. You have to go through various levels to reach the ending by deciphering the clues.
 - Spoilers in the bottom section of this README file.
 
