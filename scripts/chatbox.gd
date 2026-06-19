@@ -4,6 +4,7 @@ extends Node
 @onready var msg = $Control/Message
 @onready var display = $Control/Display
 
+
 func _process(_delta: float) -> void:
 	if msg.text:
 		send.disabled = false

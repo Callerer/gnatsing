@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dvfmiv4sh1j42"]
+
+[ext_resource type="Script" uid="uid://cfnj7cp85vr4e" path="res://scripts/startscene.gd" id="1_1j0nw"]
+[ext_resource type="Texture2D" uid="uid://dlufi0lgsfagx" path="res://assets/sprite1.png" id="2_cj833"]
+
+[node name="startscene" type="Node" unique_id=953383069]
+script = ExtResource("1_1j0nw")
+
+[node name="Button" type="Button" parent="." unique_id=1920399744]
+offset_left = 501.0
+offset_top = 367.0
+offset_right = 626.0
+offset_bottom = 436.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 22
+text = "Gnatsing!"
+
+[node name="Label" type="Label" parent="." unique_id=173281416]
+offset_left = 247.0
+offset_top = 243.0
+offset_right = 879.0
+offset_bottom = 365.0
+mouse_default_cursor_shape = 1
+text = "Howdy! 
+A tip for this one? Use the chatbox to save things. Let's go!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Label" unique_id=1055209663]
+layout_mode = 0
+offset_left = 53.999985
+offset_top = -115.999985
+offset_right = 181.99998
+offset_bottom = 12.000015
+rotation = -0.6981317
+texture = ExtResource("2_cj833")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cx3lluud7ly3r"]
+
+[ext_resource type="Script" uid="uid://c730x5pjgx80o" path="res://scripts/transitionscreen.gd" id="1_dcchu"]
+
+[sub_resource type="Animation" id="Animation_gvb20"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_djw1l"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.007843138), Color(0.13682577, 0.13682574, 0.13682571, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dox13"]
+resource_name = "fade_to_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.099999994, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.13682577, 0.13682574, 0.13682571, 1), Color(1, 1, 1, 0.007843138)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pdc1r"]
+_data = {
+&"RESET": SubResource("Animation_gvb20"),
+&"fade_to_black": SubResource("Animation_djw1l"),
+&"fade_to_normal": SubResource("Animation_dox13")
+}
+
+[node name="transitionscreen" type="CanvasLayer" unique_id=1837382320]
+script = ExtResource("1_dcchu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1060577357]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=78560583]
+libraries/ = SubResource("AnimationLibrary_pdc1r")
