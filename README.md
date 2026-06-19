@@ -14,7 +14,7 @@ enter key - to hit enter the passwords asked :D
 Assets - Callerer (aka me)
 Music - Yad by Erika Loendman 
 
-### gameplay (spoilers)
+## Gameplay (spoilers)
 - lobby (aka level_0) -> enter "vamos!" at the door
 
   Level_3 (Clue no.5):
